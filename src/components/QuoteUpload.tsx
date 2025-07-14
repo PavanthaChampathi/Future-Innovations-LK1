@@ -80,24 +80,25 @@ const QuoteUpload = () => {
   };
 
   return (
-    <section id="quote" className="py-20 bg-gray-50">
+    <section id="quote" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get Instant Quote</h2>
-          <p className="text-xl text-gray-600">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Get Instant Quote</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300">
             Upload your files and get an automated quote in minutes
           </p>
         </div>
 
         <div className="bg-white rounded-2xl shadow-xl p-8">
+        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8">
           {!quote ? (
             <div className="space-y-8">
               {/* File Upload */}
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-4">Upload Files</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-4">Upload Files</label>
                 <div
                   className={`relative border-2 border-dashed rounded-xl p-8 text-center transition-colors ${
-                    dragActive ? 'border-blue-400 bg-blue-50' : 'border-gray-300 hover:border-blue-400'
+                    dragActive ? 'border-red-400 bg-red-50 dark:bg-red-900/20' : 'border-gray-300 dark:border-gray-600 hover:border-red-400'
                   }`}
                   onDragEnter={handleDrag}
                   onDragLeave={handleDrag}
@@ -105,10 +106,10 @@ const QuoteUpload = () => {
                   onDrop={handleDrop}
                 >
                   <Upload className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-lg font-medium text-gray-900 mb-2">
+                  <p className="text-lg font-medium text-gray-900 dark:text-white mb-2">
                     Drop files here or click to upload
                   </p>
-                  <p className="text-sm text-gray-500 mb-4">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
                     Supports STL, DXF, AI, PDF, and more
                   </p>
                   <input
@@ -134,11 +135,11 @@ const QuoteUpload = () => {
               {/* Service Selection */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">Service Type</label>
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Service Type</label>
                   <select
                     value={service}
                     onChange={(e) => setService(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 dark:bg-gray-800 dark:text-white"
                   >
                     <option value="3d-printing">3D Printing</option>
                     <option value="laser-cutting">Laser Cutting</option>
@@ -146,13 +147,13 @@ const QuoteUpload = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">
+                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">
                     {service === '3d-printing' ? 'Material' : 'Material Type'}
                   </label>
                   <select
                     value={material}
                     onChange={(e) => setMaterial(e.target.value)}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 dark:bg-gray-800 dark:text-white"
                   >
                     {service === '3d-printing' ? (
                       <>
@@ -172,20 +173,20 @@ const QuoteUpload = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-3">Quantity</label>
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Quantity</label>
                 <input
                   type="number"
                   min="1"
                   value={quantity}
                   onChange={(e) => setQuantity(parseInt(e.target.value))}
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                  className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 dark:bg-gray-800 dark:text-white"
                 />
               </div>
 
               <button
                 onClick={calculateQuote}
                 disabled={files.length === 0 || loading}
-                className="w-full bg-blue-600 text-white py-4 rounded-lg font-semibold hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors flex items-center justify-center space-x-2"
+                className="w-full bg-red-600 text-white py-4 rounded-lg font-semibold hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors flex items-center justify-center space-x-2"
               >
                 {loading ? (
                   <>
@@ -207,34 +208,35 @@ const QuoteUpload = () => {
               </div>
               
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Quote Generated!</h3>
-                <p className="text-gray-600">Quote ID: {quote.quoteId}</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Quote Generated!</h3>
+                <p className="text-gray-600 dark:text-gray-400">Quote ID: {quote.quoteId}</p>
               </div>
 
               <div className="bg-gray-50 rounded-xl p-6 space-y-4">
+              <div className="bg-gray-50 dark:bg-gray-800 rounded-xl p-6 space-y-4">
                 <div className="grid md:grid-cols-2 gap-4 text-left">
                   <div>
-                    <span className="text-sm text-gray-500">Service:</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Service:</span>
                     <p className="font-medium capitalize">{quote.service.replace('-', ' ')}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-500">Material:</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Material:</span>
                     <p className="font-medium uppercase">{quote.material}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-500">Quantity:</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Quantity:</span>
                     <p className="font-medium">{quote.quantity}</p>
                   </div>
                   <div>
-                    <span className="text-sm text-gray-500">Delivery:</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Delivery:</span>
                     <p className="font-medium">{quote.deliveryTime}</p>
                   </div>
                 </div>
                 
                 <div className="border-t pt-4">
                   <div className="flex justify-between items-center">
-                    <span className="text-lg font-medium text-gray-900">Total Price:</span>
-                    <span className="text-3xl font-bold text-blue-600">LKR {quote.estimatedPrice.toLocaleString()}</span>
+                    <span className="text-lg font-medium text-gray-900 dark:text-white">Total Price:</span>
+                    <span className="text-3xl font-bold text-red-600">LKR {quote.estimatedPrice.toLocaleString()}</span>
                   </div>
                 </div>
               </div>
@@ -242,11 +244,11 @@ const QuoteUpload = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => setQuote(null)}
-                  className="flex-1 border border-gray-300 text-gray-700 py-3 rounded-lg font-medium hover:bg-gray-50 transition-colors"
+                  className="flex-1 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 py-3 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                 >
                   New Quote
                 </button>
-                <button className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                <button className="flex-1 bg-red-600 text-white py-3 rounded-lg font-medium hover:bg-red-700 transition-colors">
                   Confirm Order
                 </button>
               </div>

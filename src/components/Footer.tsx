@@ -3,13 +3,12 @@ import { Printer, Zap, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 dark:bg-black text-white transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           <div className="col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <Printer className="h-8 w-8 text-blue-400" />
-              <Zap className="h-6 w-6 text-orange-400" />
+              <img src="/Logo_S.png" alt="Future Innovations LK" className="h-8 w-8" />
               <span className="text-xl font-bold">Future Innovations LK</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
@@ -17,15 +16,15 @@ const Footer = () => {
             </p>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-blue-400" />
+                <Mail className="h-4 w-4 text-red-400" />
                 <span className="text-gray-300">info@futureinnovationslk.com</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-blue-400" />
+                <Phone className="h-4 w-4 text-red-400" />
                 <span className="text-gray-300">+94 77 123 4567</span>
               </div>
               <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-blue-400" />
+                <MapPin className="h-4 w-4 text-red-400" />
                 <span className="text-gray-300">Colombo, Sri Lanka</span>
               </div>
             </div>

@@ -30,11 +30,10 @@ const AdminSidebar = () => {
   };
 
   return (
-    <div className="w-64 bg-gray-900 text-white flex flex-col">
+    <div className="w-64 bg-gray-900 dark:bg-black text-white flex flex-col transition-colors duration-300">
       <div className="p-6 border-b border-gray-800">
         <div className="flex items-center space-x-2">
-          <Printer className="h-8 w-8 text-blue-400" />
-          <Zap className="h-6 w-6 text-orange-400" />
+          <img src="/Logo_S.png" alt="Future Innovations LK" className="h-8 w-8" />
           <div>
             <h1 className="text-lg font-bold">Future Innovations</h1>
             <p className="text-sm text-gray-400">Admin Panel</p>
@@ -51,7 +50,7 @@ const AdminSidebar = () => {
               to={item.href}
               className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                 isActive(item.href)
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-red-600 text-white'
                   : 'text-gray-300 hover:bg-gray-800 hover:text-white'
               }`}
             >

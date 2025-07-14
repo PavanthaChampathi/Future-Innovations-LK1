@@ -29,11 +29,11 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Our Services</h2>
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Professional manufacturing services with cutting-edge technology and premium materials
           </p>
         </div>
@@ -42,31 +42,31 @@ const Services = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             const colorClasses = {
-              blue: 'bg-blue-100 text-blue-600 border-blue-200',
-              orange: 'bg-orange-100 text-orange-500 border-orange-200'
+              blue: 'bg-red-100 text-red-600 border-red-200 dark:bg-red-900/30 dark:text-red-400 dark:border-red-800',
+              orange: 'bg-blue-100 text-blue-600 border-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-800'
             };
             
             return (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border">
+              <div key={index} className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border dark:border-gray-700">
                 <div className={`inline-flex p-4 rounded-xl mb-6 ${colorClasses[service.color as keyof typeof colorClasses]}`}>
                   <IconComponent className="h-8 w-8" />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{service.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">{service.description}</p>
                 
                 <ul className="space-y-3 mb-6">
                   {service.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-gray-700">{feature}</span>
+                      <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 
                 <div className="flex items-center justify-between pt-4 border-t">
-                  <span className="text-2xl font-bold text-gray-900">{service.price}</span>
-                  <button className="bg-gray-900 text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+                  <span className="text-2xl font-bold text-gray-900 dark:text-white">{service.price}</span>
+                  <button className="bg-gray-900 dark:bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-gray-800 dark:hover:bg-red-700 transition-colors">
                     Get Quote
                   </button>
                 </div>
@@ -79,12 +79,12 @@ const Services = () => {
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
-              <div key={index} className="text-center p-6 bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                <div className="inline-flex p-3 bg-blue-100 rounded-xl mb-4">
-                  <IconComponent className="h-6 w-6 text-blue-600" />
+              <div key={index} className="text-center p-6 bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div className="inline-flex p-3 bg-red-100 dark:bg-red-900/30 rounded-xl mb-4">
+                  <IconComponent className="h-6 w-6 text-red-600 dark:text-red-400" />
                 </div>
-                <h4 className="font-semibold text-gray-900 mb-2">{feature.title}</h4>
-                <p className="text-sm text-gray-600">{feature.description}</p>
+                <h4 className="font-semibold text-gray-900 dark:text-white mb-2">{feature.title}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{feature.description}</p>
               </div>
             );
           })}
